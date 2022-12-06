@@ -5,7 +5,8 @@ import java.util.Comparator;
 
 public class TicketManager {
 
-    TicketRepository repo;
+    private TicketRepository repo;
+
     public TicketManager(TicketRepository repo) {
         this.repo = repo;
     }
@@ -13,11 +14,12 @@ public class TicketManager {
     public void add(Ticket ticket) {
         repo.add(ticket);
     }
+
     public Ticket[] searchBy(String from, String to) {
         Ticket[] result = new Ticket[0];
         for (Ticket ticket : repo.findAll()) {
             if (matches(ticket, from, to)) {
-                Ticket[] tmp = new Ticket[result.length +1];
+                Ticket[] tmp = new Ticket[result.length + 1];
                 for (int i = 0; i < result.length; i++) {
                     tmp[i] = result[i];
                 }
@@ -28,11 +30,12 @@ public class TicketManager {
         Arrays.sort(result);
         return result;
     }
+
     public Ticket[] findAll(String from, String to, Comparator<Ticket> comparator) {
         Ticket[] result = new Ticket[0];
         for (Ticket ticket : repo.findAll()) {
             if (matches(ticket, from, to)) {
-                Ticket[] tmp = new Ticket[result.length +1];
+                Ticket[] tmp = new Ticket[result.length + 1];
                 for (int i = 0; i < result.length; i++) {
                     tmp[i] = result[i];
                 }
@@ -50,7 +53,7 @@ public class TicketManager {
                 return true;
             }
         }
-            return false;
+        return false;
     }
 
 
