@@ -3,11 +3,11 @@ package ru.netology;
 import org.jetbrains.annotations.NotNull;
 
 public class Ticket implements Comparable<Ticket> {
-    int id;
-    int price;
-    String from;
-    String to;
-    int time;
+    protected int id;
+    protected int price;
+    protected String from;
+    protected String to;
+    protected int time;
 
     public Ticket(int id, int price, String from, String to, int time) {
         this.id = id;
